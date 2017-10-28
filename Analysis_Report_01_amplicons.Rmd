@@ -284,7 +284,7 @@ subsetted_phylo_obj <- subset_samples(phyloseq_obj, sex_s != "Not applicable")
 
 ```{r example-phyloseq-plot-1}
 # alpha diversity metrics
-plot_richness(phy6 loseq_obj,
+plot_richness(subsetted_phylo_obj,
               x = "env_material_s",
               measures = c("Shannon", "Simpson"),
               color = "sex_s") +
@@ -297,7 +297,7 @@ plot_richness(phy6 loseq_obj,
 
 ```{r example-phyloseq-plot-2}
 # phylogeny, yay!
-plot_tree(phyloseq_obj,
+plot_tree(subsetted_phylo_obj,
           color = "sex_s",
           ladderize = TRUE) # this arranges the tree branches from short to long
 ```
