@@ -6,10 +6,10 @@ October 20, 2017
 Introduction
 ============
 
-Add about 1.5-2 pages here. Must cite at least 5 peer reviewed articles.
-
-It has been established that the diversity of skin-associated bacterial communities has a high enough degree of individual variability that the composition of these communities can be used in forensic indentification. These communities are personaly unique, temporally stable, and transferable. Fierer et al. hypothesized, based on this personalized aspect of skin bacterial communities, that they could use the residual skin bacterial left on objects as "fingerprints" to identify the individual who had touched the object. They proposed to do this by matching the bacteria on the object to the skin-associated bacteria of the individual. In order to perform this matching, three criteria must be met: (1) bacterial DNA recovered from touched surfaces allows for adequate characterization and comparison of bacterial communities; (2) skin bacterial communities persist on surfaces for days to weeks; and (3) surfaces that are touched can be effectively linked to individuals by assessing the degree of similarity between the bacterial communities on the object and the skin of the individual who touched the object.
-In order to meet these criteria and demonstrate the potential of this approach for forensic identification, three interralted studies were carried out that combined phylogenetic community analyses and high-thorughput pyrosequencing methods. The first experiment entailed comparing bacterial communities on individual keys of three computer keyboards to the communities found on the fingers of the keyboard owners. In the second, the similarity between skin-associated bacterial communities on object stored at -20 degrees Celcius versus those objects stored under typical indoor environmental conditions for up to 14 days were examined. For the third experiment, objects were linked to specific individuals based on comparison of the bacteria on their computer mice to the database containing community information for more than 250 band surfaces, including the hand of the owner. What Fierer et al. discovered was that skin-associated bacteria can be readily recovered from surfaces and that the composition of these communities can indeed be used to determine which individuals touched which objects. This could be determined even if the surfaces had been untouched for up to 2 weeks at room temperature. They demonstrated the utility of a high-throughput pyrosequencing-based approach to quantitatively compare the bacterial communities on objects and skin to match the object to the individual with a high degree of certainty.
+Forensic identification has been popularized in the public eye via the media - shows like Law and Order and other crime investigatory TV series. Albeit glorified as a speedy process that is often portrayed and a single person's job, forensics and the discoveries made by that department serves often as the turning point for many of the episodes and cases. Based on the science of identifying DNA from trace evidence left at the scene of the crime, forensics (at least in the shows) has often been associated with seminal fluids, blood, fingerprints, and hair. The identification of body fluids, particularly saliva, is important for understanding the events that took place at the crime scene and the details of the crime (Nakanishi *et al.*, 2009). Bacteria is becoming yet another avenue of forensic identification; for example, discrimination of vaginal fluid via bacterial 16S ribosomal RNA genes \[akutsu2012detection\].
+Skin is a pivotal point of exchange between the human body and the external environment that surrounds it, playing the role of prevention of moisture loss and keeping harmful organisms at bay (Segre, 2006). It is also an ecosystem and harbors microbial communities that live in a variety of physiologically and topographically unique and distinct niches (Marples and others, 1965). An example of this would be the vast difference between a hairy, moist underarm and a smooth, dry forearm; the disparity between the two is comparable to that of a rainforest and a desert (Grice *et al.*, 2009). In addition to being preferential in terms of habitat, these microbial communities also have specific makeups (Fierer *et al.*, 2010) which make them unique to the individual that they belong to. It has been established that the diversity of skin-associated bacterial communities has a high enough degree of individual variability that the composition of these communities can be used in forensic indentification. These communities are personaly unique, temporally stable, and transferable. Fierer et al. hypothesized, based on this personalized aspect of skin bacterial communities, that they could use the residual skin bacterial left on objects as "fingerprints" to identify the individual who had touched the object. They proposed to do this by matching the bacteria on the object to the skin-associated bacteria of the individual. In order to perform this matching, three criteria must be met: (1) bacterial DNA recovered from touched surfaces allows for adequate characterization and comparison of bacterial communities; (2) skin bacterial communities persist on surfaces for days to weeks; and (3) surfaces that are touched can be effectively linked to individuals by assessing the degree of similarity between the bacterial communities on the object and the skin of the individual who touched the object (Fierer *et al.*, 2010).
+In order to meet these criteria and demonstrate the potential of this approach for forensic identification, three interrelated studies were carried out that combined phylogenetic community analyses and high-thorughput pyrosequencing methods. The first experiment entailed comparing bacterial communities on individual keys of three computer keyboards to the communities found on the fingers of the keyboard owners. In the second, the similarity between skin-associated bacterial communities on object stored at -20 degrees Celcius versus those objects stored under typical indoor environmental conditions for up to 14 days were examined. For the third experiment, objects were linked to specific individuals based on comparison of the bacteria on their computer mice to the database containing community information for more than 250 band surfaces, including the hand of the owner. What Fierer et al. discovered was that skin-associated bacteria can be readily recovered from surfaces and that the composition of these communities can indeed be used to determine which individuals touched which objects. This could be determined even if the surfaces had been untouched for up to 2 weeks at room temperature. They demonstrated the utility of a high-throughput pyrosequencing-based approach to quantitatively compare the bacterial communities on objects and skin to match the object to the individual with a high degree of certainty.
+In another study conducted by Noah Fierer and his colleagues, sex was examined in terms of its influence on the diversit of hand surface bacteria \[fierer2008influence\]. They found that although there was a core set of bacterial taxa commonly found on the palm surface, there was a pronounced intra- and interpersonal variation in acterial community composition: 17% shared phylotypes between the hands of the same individual; 13% between different individuals. Women had significantly higher diversity than men "whether diversity was assessed by examining the overall phylogenetic structure on each hand or the average number of phylotypes per hand" \[fierer2008influence\]. The sexes also had signficiantly different bacterial communities on their hand surfaces. What drove these differences remained unknown but it was mentioned that skin pH may have a influence as men have generally more acidic skin than women (which leads to lower microbial diversity). Other drivers may include sweat, sebum production, frequency of moisturizer or cosmetics application, skin thickness, or hormone production, but to confirm this other studies have to be conducted.
 
 Methods
 =======
@@ -17,17 +17,13 @@ Methods
 Sample origin and sequencing
 ----------------------------
 
-Add about half a page here. In this section instead of first person (I/we), use Fierer et al., since you'll just be describing what they did, based on the methods in their paper.
-
 To obtain data for the keyboard study, about 30 individuals keys of three personal computer keyboards and each fingertip of the owner was swabbed. In order to compare the bacterial communities on the keyboards to other miscellaneous keyboards, space bar keys from 15 other private and public computer keyboards were also swabbed. For the storage study, armput skin was simultaneously swabbed with 16 moistened swabs for each of the two individuals. Half of these swabs were immediately frozen at -20 degrees Celsius while the other half was left at room temperature. To gather data for the computer mouse study, the entire exposed face of each computer mouse and the palm surface of nine individual's dominant hands were swabbed. It was important that the mouse had last been touched by the owner 12 hours before swabbing. Fierer et al. estimated the accuracy of matching the house to the owner of the mouse by measuring the degree of similarity between bacterial communities on each computer mouse to the hands of the mouse's owner and to the hands that had never touched the mouse.
 Genomic DNA was extracted from the swabs using the MO BIO PowerSoil DNA Isolation kit. For each sample, 16S rRNA genes were amplified using the primer set (detailed in "The influence of sex, handedness, and washing on the diversity of hand surface bacteria" by Fierer et al. (2008)) that had been optimized for the phylogenetic analysis of pyrosequencing reads. PCR reactions followed by thermal cycling and aplicon cleaning using UltraClean-htp96-well PCR Clean-up kit (MO BIO) were conducted. Amplicon DNA concentrations were measured using the Quant-it PicoGreen dsDNA reagent and kit (Invitrogen). Pyrosequencing was carried out on a 454 Life Sciences Genome Sequencer FLX instrument (Roche) by the Environmental Genomics Core Facility at the University of South Carolina.
 
 Computational
 -------------
 
-These are the methods you used. Should probably be at least a half of a page. At a very minimum should include citations for DADA2 (Callahan *et al.*, 2016) and phyloseq (McMurdie and Holmes, 2013). Note that these don't count towards the five references you need to cite in the introduction.
-
-Computation with this data began with creating a bashscript with code which downloaded the list of 20 files (from the NCBI Sequence Read Archive study number ERP022657) in the run table to the project's data directory. Code was then written to create QC reports for each of the runs using the FastQC program. These 20 sequences were then trimmed based on their quality scores (any sequences below the length of 150 base pairs and any base score below 25 was discarded). The bascript proceeded with code which converted fastq files into fasta files so that they could be used in BLAST queries. Finally, each sequence was blasted with the output written into a csv file; "blastn" was used to search for the top match of each sequence against the *nt* database. These BLAST results are what are now being used for this R-scripted analysis. As the blasting took tens of hours, this session was made sure to be written in a tmux session for the online server.
+Computation with this data began with creating a bashscript with code which downloaded the list of 20 files (from the NCBI Sequence Read Archive study number ERP022657) in the run table to the project's data directory. Code was then written to create QC reports for each of the runs using the FastQC program. These 20 sequences were then trimmed based on their quality scores (any sequences below the length of 150 base pairs and any base score below 25 was discarded). The bascript proceeded with code which converted fastq files into fasta files so that they could be used in BLAST queries. Finally, each sequence was blasted with the output written into a csv file; "blastn" was used to search for the top match of each sequence against the *nt* database. These BLAST results are what are now being used for this R-scripted analysis. As the blasting took tens of hours, this session was made sure to be written in a tmux session for the online server. The results of this BLAST session were taken and filed in a data file named "metadata\_in." This data was primarily manipulated in order to create comprehensive graphs of the data in order to further understand relationships and correlations that might have otherwise been obscured. In this specific report, the aforementioned data was taken and assembled in various ways in order to present the data in a novel way. Two open-source software packages were used in order to manipulate the data: DADA2 and phyloseq. DADA2's strengths lie in modeling and correcting Illumina-sequenced amplicon errors by inferring sample sequencing exactly and resolving differences of as little as 1 nucleotide (Callahan *et al.*, 2016). Phyloseq is dedicated to object-oriented representation and analysis of microbiome census data in R, supporting data importation from a variety of common formats as well as many analysis techniques (McMurdie and Holmes, 2013).
 
 Results
 =======
@@ -651,7 +647,7 @@ unname(taxa)
     ##  [56,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ##  [57,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [58,] "Bacteria" "Proteobacteria"            "Gammaproteobacteria"
-    ##  [59,] "Bacteria" "Proteobacteria"            NA                   
+    ##  [59,] "Bacteria" NA                          NA                   
     ##  [60,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [61,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [62,] "Bacteria" "Proteobacteria"            "Alphaproteobacteria"
@@ -796,7 +792,7 @@ unname(taxa)
     ##  [24,] "Clostridiales"      "Lachnospiraceae"     
     ##  [25,] "Burkholderiales"    "Comamonadaceae"      
     ##  [26,] "Chloroplast"        "Streptophyta"        
-    ##  [27,] "Clostridiales"      NA                    
+    ##  [27,] "Clostridiales"      "Ruminococcaceae"     
     ##  [28,] "Actinomycetales"    "Streptomycetaceae"   
     ##  [29,] "Clostridiales"      "Ruminococcaceae"     
     ##  [30,] "Sphingomonadales"   "Sphingomonadaceae"   
@@ -912,7 +908,7 @@ unname(taxa)
     ## [140,] "Erysipelotrichales" "Erysipelotrichaceae" 
     ## [141,] "Actinomycetales"    "Mycobacteriaceae"    
     ## [142,] "Actinomycetales"    "Microbacteriaceae"   
-    ## [143,] "Clostridiales"      "Ruminococcaceae"     
+    ## [143,] "Clostridiales"      NA                    
     ## [144,] "Actinomycetales"    "Propionibacteriaceae"
     ## [145,] "Clostridiales"      "Ruminococcaceae"     
     ## [146,] "Actinomycetales"    "Nocardioidaceae"     
@@ -969,7 +965,7 @@ unname(taxa)
     ##  [20,] "Diaphorobacter"           
     ##  [21,] NA                         
     ##  [22,] "Intestinimonas"           
-    ##  [23,] "Clostridium_IV"           
+    ##  [23,] NA                         
     ##  [24,] NA                         
     ##  [25,] "Pelomonas"                
     ##  [26,] NA                         
@@ -1000,7 +996,7 @@ unname(taxa)
     ##  [51,] "Marmoricola"              
     ##  [52,] NA                         
     ##  [53,] "Streptomyces"             
-    ##  [54,] NA                         
+    ##  [54,] "Sphingosinicella"         
     ##  [55,] NA                         
     ##  [56,] NA                         
     ##  [57,] "Oscillibacter"            
@@ -1011,7 +1007,7 @@ unname(taxa)
     ##  [62,] "Microvirga"               
     ##  [63,] NA                         
     ##  [64,] "Arthrobacter"             
-    ##  [65,] "Marmoricola"              
+    ##  [65,] NA                         
     ##  [66,] "Microbacterium"           
     ##  [67,] "Sphingomonas"             
     ##  [68,] NA                         
@@ -1086,7 +1082,7 @@ unname(taxa)
     ## [137,] "Stappia"                  
     ## [138,] NA                         
     ## [139,] "Massilia"                 
-    ## [140,] NA                         
+    ## [140,] "Erysipelothrix"           
     ## [141,] "Mycobacterium"            
     ## [142,] "Microbacterium"           
     ## [143,] NA                         
@@ -1099,10 +1095,10 @@ unname(taxa)
     ## [150,] NA                         
     ## [151,] NA                         
     ## [152,] "Clostridium_sensu_stricto"
-    ## [153,] NA                         
+    ## [153,] "Prevotella"               
     ## [154,] NA                         
     ## [155,] NA                         
-    ## [156,] NA                         
+    ## [156,] "Pseudoflavonifractor"     
     ## [157,] NA                         
     ## [158,] NA                         
     ## [159,] NA                         
@@ -1177,8 +1173,12 @@ phyloseq_obj <- phyloseq(otu_table(sequence_table_nochim,
 ```
 
 ``` r
+subsetted_phylo_obj <- subset_samples(phyloseq_obj, sex_s != "Not applicable")
+```
+
+``` r
 # alpha diversity metrics
-plot_richness(phyloseq_obj,
+plot_richness(subsetted_phylo_obj,
               x = "env_material_s",
               measures = c("Shannon", "Simpson"),
               color = "sex_s") +
@@ -1200,10 +1200,12 @@ plot_richness(phyloseq_obj,
 
 ``` r
 # phylogeny, yay!
-plot_tree(phyloseq_obj,
+plot_tree(subsetted_phylo_obj,
           color = "sex_s",
           ladderize = TRUE) # this arranges the tree branches from short to long
 ```
+
+    ## Warning: Removed 1 rows containing missing values (geom_segment).
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/example-phyloseq-plot-2-1.png)
 
@@ -1214,9 +1216,21 @@ Discussion
 
 Add around 2-3 pages interpreting your results and considering future directions one might take in analyzing these data.
 
+Although based in science, with the goal being the highest degree of certainty possible, it is also crucially important that these findings are taken into account with respect to also the larger picture. Context is so important and how the findings fit in with the rest of the case evidence. Forensic identification plays a role in dealing out justice in our society and putting someone away behind bars and taking away years of choice and freedom from their lives is no small and lightly taken task. The science behind any widely used forensic indentification approach has to be stringent enough to be able to be used in a court of law but also used appropriately as to pass what should be universally held as a moral code. Dealing justice is not a task for the weak of heart and should be taken on with the utmost gravitas and responsibility.
+
 Sources Cited
 =============
 
 Callahan,B.J. *et al.* (2016) DADA2: High-resolution sample inference from illumina amplicon data. *Nature Methods*, **13**, 581–583.
 
+Fierer,N. *et al.* (2010) Forensic identification using skin bacterial communities. *Proceedings of the National Academy of Sciences*, **107**, 6477–6481.
+
+Grice,E.A. *et al.* (2009) Topographical and temporal diversity of the human skin microbiome. *science*, **324**, 1190–1192.
+
+Marples,M.J. and others (1965) The ecology of the human skin. *The ecology of the human skin.*
+
 McMurdie,P.J. and Holmes,S. (2013) Phyloseq: An r package for reproducible interactive analysis and graphics of microbiome census data. *PLoS ONE*, **8**, e61217.
+
+Nakanishi,H. *et al.* (2009) A novel method for the identification of saliva by detecting oral streptococci using pcr. *Forensic science international*, **183**, 20–23.
+
+Segre,J.A. (2006) Epidermal barrier formation and recovery in skin disorders. *Journal of Clinical Investigation*, **116**, 1150.
