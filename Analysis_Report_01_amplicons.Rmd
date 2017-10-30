@@ -301,7 +301,10 @@ plot_tree(subsetted_phylo_obj,
 
 **Figure 2**: Inferred phylogeny of sequences, with points on tips representing samples within which each particular taxa occurred. Tree represents maximum likelihood phylogeny inferred using RAxML.
 
-```
+```{r plot-bar}
+title = "plot_bar"
+p5 = plot_bar(subsetted_phylo_obj, "sex_s", "Abundance", "Family", title = title)
+p5
 ```
 
 # Discussion
