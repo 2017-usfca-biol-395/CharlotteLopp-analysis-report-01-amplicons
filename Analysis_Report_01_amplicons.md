@@ -1,4 +1,4 @@
-Analysis Report 1: Your Title Here
+Analysis Report 1: Sex Differentiation via Hand Bacterial Community Diveristy
 ================
 Charlotte Lopp
 October 20, 2017
@@ -14,7 +14,7 @@ It has been established that the diversity of skin-associated bacterial communit
 
 In order to meet these criteria and demonstrate the potential of this approach for forensic identification, three interrelated studies were carried out that combined phylogenetic community analyses and high-thorughput pyrosequencing methods. The first experiment entailed comparing bacterial communities on individual keys of three computer keyboards to the communities found on the fingers of the keyboard owners. In the second, the similarity between skin-associated bacterial communities on object stored at -20 degrees Celcius versus those objects stored under typical indoor environmental conditions for up to 14 days were examined. For the third experiment, objects were linked to specific individuals based on comparison of the bacteria on their computer mice to the database containing community information for more than 250 band surfaces, including the hand of the owner. What Fierer et al. discovered was that skin-associated bacteria can be readily recovered from surfaces and that the composition of these communities can indeed be used to determine which individuals touched which objects. This could be determined even if the surfaces had been untouched for up to 2 weeks at room temperature. They demonstrated the utility of a high-throughput pyrosequencing-based approach to quantitatively compare the bacterial communities on objects and skin to match the object to the individual with a high degree of certainty.
 
-In another study conducted by Noah Fierer and his colleagues, sex was examined in terms of its influence on the diversit of hand surface bacteria \[fierer2008influence\]. They found that although there was a core set of bacterial taxa commonly found on the palm surface, there was a pronounced intra- and interpersonal variation in acterial community composition: 17% shared phylotypes between the hands of the same individual; 13% between different individuals. Women had significantly higher diversity than men "whether diversity was assessed by examining the overall phylogenetic structure on each hand or the average number of phylotypes per hand" \[fierer2008influence\]. The sexes also had signficiantly different bacterial communities on their hand surfaces. What drove these differences remained unknown but it was mentioned that skin pH may have a influence as men have generally more acidic skin than women (which leads to lower microbial diversity). Other drivers may include sweat, sebum production, frequency of moisturizer or cosmetics application, skin thickness, or hormone production, but to confirm this other studies have to be conducted.
+In another study conducted by Noah Fierer and his colleagues, sex was examined in terms of its influence on the diversity of hand surface bacteria \[fierer2008influence\]. They found that although there was a core set of bacterial taxa commonly found on the palm surface, there was a pronounced intra- and interpersonal variation in acterial community composition: 17% shared phylotypes between the hands of the same individual; 13% between different individuals. Women had significantly higher diversity than men "whether diversity was assessed by examining the overall phylogenetic structure on each hand or the average number of phylotypes per hand" \[fierer2008influence\]. The sexes also had signficiantly different bacterial communities on their hand surfaces. What drove these differences remained unknown but it was mentioned that skin pH may have a influence as men have generally more acidic skin than women (which leads to lower microbial diversity). Other drivers may include sweat, sebum production, frequency of moisturizer or cosmetics application, skin thickness, or hormone production, but to confirm this other studies have to be conducted.
 
 Methods
 =======
@@ -167,6 +167,8 @@ kable(filtered_output,
 | ERR1942298.fastq |       562|        389|
 | ERR1942299.fastq |      1025|        852|
 
+Here we see the number of read counts for each of the twenty samples before and after trimming. The trimming was based on the decrease in quality near the end of the reads as seen in the previous Plot Quality Profile figure. This means that "read outs" have been vetted for not having any N's, were allowed up to 3 expected errors, and were cut off if the quality reached as low as truncQ = 2.
+
 ``` r
 # this build error models from each of the samples
 errors_forward_reads <- learnErrors(filtered_reads_path,
@@ -221,6 +223,8 @@ errors_forward_reads <- learnErrors(filtered_reads_path,
     ## Convergence after  3  rounds.
     ## Total reads used:  9127
 
+We can see here the error models for each of the twenty samples with it first being established that not all the sequences are the same length followed by the number of reads (which are the same numbers as the "reads out" column of the previous table) for each sample in their number of unique sequences.
+
 ``` r
 # quick check to see if error models match data
 # (black lines match black points) and are generally decresing left to right
@@ -233,6 +237,8 @@ plotErrors(errors_forward_reads,
     ## Warning: Transformation introduced infinite values in continuous y-axis
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/visualize-errors-with-plots-1.png)
+
+This figure serves as a check by visualizing the estimated error rates (which were enumerated in the previous figure) to make sure that the error models match the data. The error rates shown are for each possible transition (eg. A -&gt; C, A -&gt; G,...). Each point represents the observed error rate for each consensus quality score. The black line shows the estimated error rates after convergence. The red line shows the error rates expected under the nominal definition of the Q-value. We can see here that eah of the black lines (estimated rates) fit the observed rates well in that they follow the general trend of decreasing from left to right. Thus, everything looks safe in terms of error and we can proceed with confidence (Callahan *et al.*, 2016).
 
 ``` r
 # get rid of any duplicated sequences
@@ -501,6 +507,8 @@ dada_forward_reads
     ## 8 sample sequences were inferred from 239 input unique sequences.
     ## Key parameters: OMEGA_A = 1e-40, BAND_SIZE = 32, USE_QUALS = TRUE
 
+This is dereplication which means we are combining all identical sequencing reads into "unique sequences" with a corresponding "abundance:" the number of reads with that unique sequence (in this case, the number of sample sequences that were inferred from however many input unique sequences). Because dereplication was done within the DADA2 pipeline, a summary of the quality information associated with each unique seuqence was retained. The consensus quality profile of a unique sequence is the average of the positional qualities from the dereplicated reads. These quality profiles inform the error model of the subsequent denoising step, significanlty increasing DADA2's accuracy (Callahan *et al.*, 2016).
+
 ``` r
 # produce the 'site by species matrix'
 sequence_table <- makeSequenceTable(dada_forward_reads)
@@ -518,6 +526,8 @@ hist(nchar(getSequences(sequence_table)),
 ```
 
 ![](Analysis_Report_01_amplicons_files/figure-markdown_github-ascii_identifiers/histogram-of-sequence-lengths-1.png)
+
+This histogram serves as visualization of the distribution of the trimmed and denoised sequences. The increase in frequency along the increase of sequence length in base pairs follows an exponential curve. Thus, the shortest sequences appear the least and the longest sequences appear the most.
 
 ``` r
 # Check for and remove chimeras
@@ -581,6 +591,8 @@ kable(track)
 | ERR1942297 |    275|       246|       246|             246|           246|
 | ERR1942298 |    562|       389|       389|             389|           389|
 | ERR1942299 |   1025|       852|       852|             852|           852|
+
+Here, the values in the columns "input" and "filtered" should look familiar from the table looking at the read counts for each of the twenty sequences before and after the quality trim. The values for the columns "denoised," "sequence table," and "non-chimeric" are all the same as those under "filtered" except for the non-chimeric value for ERR1942286.
 
 ``` r
 # assigns taxonomy to each sequence variant based on a supplied training set
@@ -657,7 +669,7 @@ unname(taxa)
     ##  [60,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [61,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [62,] "Bacteria" "Proteobacteria"            "Alphaproteobacteria"
-    ##  [63,] "Bacteria" "Firmicutes"                NA                   
+    ##  [63,] "Bacteria" "Firmicutes"                "Clostridia"         
     ##  [64,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ##  [65,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
     ##  [66,] "Bacteria" "Actinobacteria"            "Actinobacteria"     
@@ -726,7 +738,7 @@ unname(taxa)
     ## [129,] "Bacteria" "Proteobacteria"            "Alphaproteobacteria"
     ## [130,] "Bacteria" "Spirochaetes"              "Spirochaetia"       
     ## [131,] "Bacteria" "Firmicutes"                "Clostridia"         
-    ## [132,] "Bacteria" "Firmicutes"                NA                   
+    ## [132,] "Bacteria" NA                          NA                   
     ## [133,] "Bacteria" "Firmicutes"                NA                   
     ## [134,] "Bacteria" "Proteobacteria"            "Gammaproteobacteria"
     ## [135,] "Bacteria" "Firmicutes"                "Clostridia"         
@@ -815,7 +827,7 @@ unname(taxa)
     ##  [41,] "Lactobacillales"    "Streptococcaceae"    
     ##  [42,] "Clostridiales"      "Ruminococcaceae"     
     ##  [43,] "Rhodocyclales"      "Rhodocyclaceae"      
-    ##  [44,] "Clostridiales"      NA                    
+    ##  [44,] "Clostridiales"      "Ruminococcaceae"     
     ##  [45,] "Pseudomonadales"    "Pseudomonadaceae"    
     ##  [46,] "Actinomycetales"    "Streptomycetaceae"   
     ##  [47,] "Clostridiales"      "Lachnospiraceae"     
@@ -834,7 +846,7 @@ unname(taxa)
     ##  [60,] "Clostridiales"      "Ruminococcaceae"     
     ##  [61,] "Clostridiales"      "Ruminococcaceae"     
     ##  [62,] "Rhizobiales"        "Methylobacteriaceae" 
-    ##  [63,] NA                   NA                    
+    ##  [63,] "Clostridiales"      NA                    
     ##  [64,] "Actinomycetales"    "Micrococcaceae"      
     ##  [65,] "Actinomycetales"    "Nocardioidaceae"     
     ##  [66,] "Actinomycetales"    "Microbacteriaceae"   
@@ -928,7 +940,7 @@ unname(taxa)
     ## [154,] NA                   NA                    
     ## [155,] NA                   NA                    
     ## [156,] "Clostridiales"      "Ruminococcaceae"     
-    ## [157,] "Clostridiales"      "Ruminococcaceae"     
+    ## [157,] "Clostridiales"      NA                    
     ## [158,] "Clostridiales"      NA                    
     ## [159,] "Lactobacillales"    "Carnobacteriaceae"   
     ## [160,] "Flavobacteriales"   "Flavobacteriaceae"   
@@ -945,7 +957,7 @@ unname(taxa)
     ## [171,] "Rhizobiales"        "Bradyrhizobiaceae"   
     ## [172,] "Clostridiales"      NA                    
     ## [173,] "Clostridiales"      "Catabacteriaceae"    
-    ## [174,] "Actinomycetales"    "Nocardiaceae"        
+    ## [174,] "Actinomycetales"    NA                    
     ## [175,] "Pasteurellales"     "Pasteurellaceae"     
     ## [176,] "Actinomycetales"    "Microbacteriaceae"   
     ##        [,6]                       
@@ -996,10 +1008,10 @@ unname(taxa)
     ##  [45,] "Pseudomonas"              
     ##  [46,] "Streptomyces"             
     ##  [47,] NA                         
-    ##  [48,] "Pelomonas"                
+    ##  [48,] NA                         
     ##  [49,] "Microbacterium"           
     ##  [50,] "Mycobacterium"            
-    ##  [51,] "Marmoricola"              
+    ##  [51,] NA                         
     ##  [52,] NA                         
     ##  [53,] "Streptomyces"             
     ##  [54,] NA                         
@@ -1028,7 +1040,7 @@ unname(taxa)
     ##  [77,] "Nocardia"                 
     ##  [78,] "Nocardioides"             
     ##  [79,] "Subtercola"               
-    ##  [80,] "Butyricicoccus"           
+    ##  [80,] NA                         
     ##  [81,] "Cloacibacterium"          
     ##  [82,] "Microbacterium"           
     ##  [83,] "Sphingomonas"             
@@ -1082,7 +1094,7 @@ unname(taxa)
     ## [131,] NA                         
     ## [132,] NA                         
     ## [133,] NA                         
-    ## [134,] NA                         
+    ## [134,] "Nicoletella"              
     ## [135,] NA                         
     ## [136,] NA                         
     ## [137,] "Stappia"                  
@@ -1125,6 +1137,8 @@ unname(taxa)
     ## [174,] NA                         
     ## [175,] "Nicoletella"              
     ## [176,] "Agrococcus"
+
+This is the data stored in the data folder entitled "taxa." This shows us the taxonomy of each of the bacteria found in the data with specificity (from Kingdom down to Species) provided only up to where there is confidence in the classification.
 
 ``` r
 # we want to export the cleaned, trimmed, filtered, denoised sequence variants
@@ -1228,8 +1242,7 @@ p5
 
 **Figure 3**: Taxonomic distribution of the top 20 sequences to explain the differentiation between the male and females sexes.
 
-Summary of Results
-------------------
+### Summary of Results
 
 In Figure 1, Simpson's index is a similarity index meaning that the higher the value, the lower the diversity. Conversely, the Shannon function is not an index and is read as diversity increasing as the value increases. Thus when looking at the alpha diversity measures of the sample origin sebum with the data arranged via the Simpson's index, we can tell that there's a cluster of six female data from 0.7 to 0.8, what looks like upon closer inspection two data points at about 0.55, and two other data points just between 0.0 and 0.1; the male data is interspersed between 0.0 and 0.7. There are two male data just below the two female data. When looking at the data arranged via the Shannon function, the general trend looks similar to that of the Simpson index. However, the female data is somewhat more evenly interspersed with five data points showing up between 1.9 and 2.25, two data points at around 1.25, and two data points around 0.2. The margin between the highest marking female data points and male data points is much more distinct with the clearance being around 0.25.
 

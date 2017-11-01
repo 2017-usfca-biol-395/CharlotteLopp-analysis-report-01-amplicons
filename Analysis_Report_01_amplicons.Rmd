@@ -1,5 +1,5 @@
 ---
-title: "Analysis Report 1: Your Title Here"
+title: "Analysis Report 1: Sex Differentiation via Hand Bacterial Community Diveristy"
 author: "Charlotte Lopp"
 date: "October 20, 2017"
 output: github_document
@@ -17,7 +17,7 @@ csl: bioinformatics.csl
   
   In order to meet these criteria and demonstrate the potential of this approach for forensic identification, three interrelated studies were carried out that combined phylogenetic community analyses and high-thorughput pyrosequencing methods. The first experiment entailed comparing bacterial communities on individual keys of three computer keyboards to the communities found on the fingers of the keyboard owners. In the second, the similarity between skin-associated bacterial communities on object stored at -20 degrees Celcius versus those objects stored under typical indoor environmental conditions for up to 14 days were examined. For the third experiment, objects were linked to specific individuals based on comparison of the bacteria on their computer mice to the database containing community information for more than 250 band surfaces, including the hand of the owner. What Fierer et al. discovered was that skin-associated bacteria can be readily recovered from surfaces and that the composition of these communities can indeed be used to determine which individuals touched which objects. This could be determined even if the surfaces had been untouched for up to 2 weeks at room temperature. They demonstrated the utility of a high-throughput pyrosequencing-based approach to quantitatively compare the bacterial communities on objects and skin to match the object to the individual with a high degree of certainty.  
   
-  In another study conducted by Noah Fierer and his colleagues, sex was examined in terms of its influence on the diversit of hand surface bacteria [fierer2008influence]. They found that although there was a core set of bacterial taxa commonly found on the palm surface, there was a pronounced intra- and interpersonal variation in acterial community composition: 17% shared phylotypes between the hands of the same individual; 13% between different individuals. Women had significantly higher diversity than men "whether diversity was assessed by examining the overall phylogenetic structure on each hand or the average number of phylotypes per hand" [fierer2008influence]. The sexes also had signficiantly different bacterial communities on their hand surfaces. What drove these differences remained unknown but it was mentioned that skin pH may have a influence as men have generally more acidic skin than women (which leads to lower microbial diversity). Other drivers may include sweat, sebum production, frequency of moisturizer or cosmetics application, skin thickness, or hormone production, but to confirm this other studies have to be conducted. 
+  In another study conducted by Noah Fierer and his colleagues, sex was examined in terms of its influence on the diversity of hand surface bacteria [fierer2008influence]. They found that although there was a core set of bacterial taxa commonly found on the palm surface, there was a pronounced intra- and interpersonal variation in acterial community composition: 17% shared phylotypes between the hands of the same individual; 13% between different individuals. Women had significantly higher diversity than men "whether diversity was assessed by examining the overall phylogenetic structure on each hand or the average number of phylotypes per hand" [fierer2008influence]. The sexes also had signficiantly different bacterial communities on their hand surfaces. What drove these differences remained unknown but it was mentioned that skin pH may have a influence as men have generally more acidic skin than women (which leads to lower microbial diversity). Other drivers may include sweat, sebum production, frequency of moisturizer or cosmetics application, skin thickness, or hormone production, but to confirm this other studies have to be conducted. 
 
 
 
@@ -133,11 +133,15 @@ kable(filtered_output,
                     "Reads Out"))
 ```
 
+Here we see the number of read counts for each of the twenty samples before and after trimming. The trimming was based on the decrease in quality near the end of the reads as seen in the previous Plot Quality Profile figure. This means that "read outs" have been vetted for not having any N's, were allowed up to 3 expected errors, and were cut off if the quality reached as low as truncQ = 2. 
+
 ```{r learn-errors}
 # this build error models from each of the samples
 errors_forward_reads <- learnErrors(filtered_reads_path,
                                     multithread = FALSE)
 ```
+
+We can see here the error models for each of the twenty samples with it first being established that not all the sequences are the same length followed by the number of reads (which are the same numbers as the "reads out" column of the previous table) for each sample in their number of unique sequences. 
 
 ```{r visualize-errors-with-plots}
 # quick check to see if error models match data
@@ -145,6 +149,8 @@ errors_forward_reads <- learnErrors(filtered_reads_path,
 plotErrors(errors_forward_reads,
            nominalQ = TRUE)
 ```
+
+This figure serves as a check by visualizing the estimated error rates (which were enumerated in the previous figure) to make sure that the error models match the data. The error rates shown are for each possible transition (eg. A -> C, A -> G,...). Each point represents the observed error rate for each consensus quality score. The black line shows the estimated error rates after convergence. The red line shows the error rates expected under the nominal definition of the Q-value. We can see here that eah of the black lines (estimated rates) fit the observed rates well in that they follow the general trend of decreasing from left to right. Thus, everything looks safe in terms of error and we can proceed with confidence [@callahan2016]. 
 
 ```{r dereplicate-sequences}
 # get rid of any duplicated sequences
@@ -168,6 +174,8 @@ dada_forward_reads <- dada(dereplicated_forward_reads,
 dada_forward_reads
 ```
 
+This is dereplication which means we are combining all identical sequencing reads into "unique sequences" with a corresponding "abundance:" the number of reads with that unique sequence (in this case, the number of sample sequences that were inferred from however many input unique sequences). Because dereplication was done within the DADA2 pipeline, a summary of the quality information associated with each unique seuqence was retained. The consensus quality profile of a unique sequence is the average of the positional qualities from the dereplicated reads. These quality profiles inform the error model of the subsequent denoising step, significanlty increasing DADA2's accuracy [@callahan2016]. 
+
 ```{r make-sequence-table}
 # produce the 'site by species matrix'
 sequence_table <- makeSequenceTable(dada_forward_reads)
@@ -181,6 +189,8 @@ hist(nchar(getSequences(sequence_table)),
      main = "Histogram of fingal sequence variant lengths",
      xlab = "Sequence length in bp")
 ```
+
+This histogram serves as visualization of the distribution of the trimmed and denoised sequences. The increase in frequency along the increase of sequence length in base pairs follows an exponential curve. Thus, the shortest sequences appear the least and the longest sequences appear the most.
 
 ```{r remove-chimeras}
 # Check for and remove chimeras
@@ -218,6 +228,8 @@ rownames(track) <- sample_names
 kable(track)
 ```
 
+Here, the values in the columns "input" and "filtered" should look familiar from the table looking at the read counts for each of the twenty sequences before and after the quality trim. The values for the columns "denoised," "sequence table," and "non-chimeric" are all the same as those under "filtered" except for the non-chimeric value for ERR1942286. 
+
 ```{r assign-taxonomy}
 # assigns taxonomy to each sequence variant based on a supplied training set
 # made up of known sequences
@@ -229,6 +241,8 @@ taxa <- assignTaxonomy(sequence_table_nochim,
 # show the results of the taxonomy assignment
 unname(taxa)
 ```
+
+This is the data stored in the data folder entitled "taxa." This shows us the taxonomy of each of the bacteria found in the data with specificity (from Kingdom down to Species) provided only up to where there is confidence in the classification. 
 
 ```{r extract-sequences-to-fasta}
 # we want to export the cleaned, trimmed, filtered, denoised sequence variants
@@ -317,8 +331,8 @@ p5
 
 **Figure 3**: Taxonomic distribution of the top 20 sequences to explain the differentiation between the male and females sexes.   
 
-## Summary of Results
-  In Figure 1, Simpson's index is a similarity index meaning that the higher the value, the lower the diversity. Conversely, the Shannon function is not an index and is read as diversity increasing as the value increases. Thus when looking at the alpha diversity measures of the sample origin sebum with the data arranged via the Simpson's index, we can tell that there's a cluster of six female data from 0.7 to 0.8, what looks like upon closer inspection two data points at about 0.55, and two other data points just between 0.0 and 0.1; the male data is interspersed between 0.0 and 0.7. There are two male data just below the two female data. When looking at the data arranged via the Shannon function, the general trend looks similar to that of the Simpson index. However, the female data is somewhat more evenly interspersed with five data points showing up between 1.9 and 2.25, two data points at around 1.25, and two data points around 0.2. The margin between the highest marking female data points and male data points is much more distinct with the clearance being around 0.25.
+### Summary of Results
+  For Figure 1, Simpson's index is a similarity index meaning that the higher the value, the lower the diversity. Conversely, the Shannon function is not an index and is read as diversity increasing as the value increases. Thus when looking at the alpha diversity measures of the sample origin sebum with the data arranged via the Simpson's index, we can tell that there's a cluster of six female data from 0.7 to 0.8, what looks like upon closer inspection two data points at about 0.55, and two other data points just between 0.0 and 0.1; the male data is interspersed between 0.0 and 0.7. There are two male data just below the two female data. When looking at the data arranged via the Shannon function, the general trend looks similar to that of the Simpson index. However, the female data is somewhat more evenly interspersed with five data points showing up between 1.9 and 2.25, two data points at around 1.25, and two data points around 0.2. The margin between the highest marking female data points and male data points is much more distinct with the clearance being around 0.25.
   
   For Figure 2, phylogenetic trees or evolutionary trees are branching diagrams that show the interred evolutionary relationships among various biological species based on similarities and differences in their physical or genetic characteristics. We can see that it looks like there is a greater amount of pink (female) dots or data points than blue. Upon closer inspection, we can wee that the pink dots appear in almost every clade that the blue dots do or that they at least appear in closely related branches separated by only one or two nodes (or speciation events). We can also see that from starting at the root of the tree, from the common ancestor, the female bacteria is the oldest with the male bacteria appearing later in the timeline. 
   
