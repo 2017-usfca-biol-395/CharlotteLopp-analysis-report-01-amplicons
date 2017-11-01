@@ -325,7 +325,7 @@ plot_tree(subsetted_phylo_obj,
 ```{r plot-bar}
 # plot bar of taxonomic distribution
 title <- "plot_bar"
-p5 <- plot_bar(subsetted_phylo_obj, "sex_s", "Abundance", "Family", 
+p5 <- plot_bar(subsetted_phylo_obj, "sex_s", "Abundance", "Family",
               title = title)
 p5
 ```
